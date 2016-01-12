@@ -7,10 +7,6 @@ import java.util.List;
 /**
  * Created by yusuf on 1/13/16.
  */
-public interface BookDAO {
+public interface BookDAO extends GenericDAO<Book, Integer>{
 
-    public boolean addBook(Book book);
-    public Book getBookById(long id);
-    public List<Book> getBookList();
-    public boolean deleteBook(long id);
 }

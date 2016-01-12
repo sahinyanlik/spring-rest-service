@@ -6,13 +6,12 @@ import javax.persistence.*;
  * Created by yusuf on 1/13/16.
  */
 @Entity
-@Table(name = "book")
 public class Book {
 
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(name = "bookName")
     private String bookName;
@@ -20,11 +19,14 @@ public class Book {
     @Column(name = "bookDesc")
     private String bookDesc;
 
-    public long getId() {
+    public Book() {
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

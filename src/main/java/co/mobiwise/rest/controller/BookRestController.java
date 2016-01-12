@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class BookRestController {
 
-    @Autowired
+    @Autowired(required = true)
     BookService bookService;
 
     static final Logger logger = Logger.getLogger(BookRestController.class);
@@ -28,7 +28,7 @@ public class BookRestController {
     List<Book> getBookList() {
         List<Book> bookList = null;
         try {
-            bookList = bookService.getBookList();
+            bookList = bookService.getAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class BookRestController {
     public @ResponseBody
     String addBook(@RequestBody Book book){
         try{
-            bookService.addBook(book);
+            bookService.add(book);
             return  "Book added";
         } catch (Exception e) {
             return e.toString();
@@ -48,10 +48,10 @@ public class BookRestController {
 
     @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
     public @ResponseBody
-    Book getBookById(@PathVariable("id") long id){
+    Book getBookById(@PathVariable("id") int id){
         Book book = null;
         try {
-            book = bookService.getBookById(id);
+            book = bookService.get(id);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,9 +61,9 @@ public class BookRestController {
 
     @RequestMapping(value="/book/{id}", method = RequestMethod.DELETE)
     public @ResponseBody
-    String deleteBook(@PathVariable("id") long id){
+    String deleteBook(@RequestBody Book book){
         try {
-            bookService.deleteBook(id);
+            bookService.remove(book);
             return "book deleted";
         } catch (Exception e) {
             return e.toString();
