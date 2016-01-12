@@ -15,7 +15,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/book" />
         <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="root" />
     </bean>
 
     <bean id="sessionFactory"
@@ -23,7 +23,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-
+                <value>co.mobiwise.rest.domain.Book</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -41,5 +41,8 @@
 
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+    <bean id="bookDao" class="co.mobiwise.rest.dao.BookDAOImpl"></bean>
+    <bean id="bookService" class="co.mobiwise.rest.service.BookServiceImpl"></bean>
 
 </beans>
