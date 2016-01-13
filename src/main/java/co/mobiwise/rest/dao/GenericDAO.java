@@ -7,10 +7,50 @@ import java.util.List;
  */
 public interface GenericDAO<E, K> {
 
-    public void add(E entity) ;
-    public void saveOrUpdate(E entity) ;
-    public void update(E entity) ;
-    public void remove(E entity);
-    public E find(K key);
-    public List<E> getAll() ;
+    /**
+     *GenericDao interface contains common methods used by multiple dao classes.
+     * Also, we are using Java generic concept in this interface.
+     * E and K letters represent Model class
+     *
+     * add your entity.
+     *
+     * @param entity
+     */
+     void add(E entity) ;
+
+    /**
+     * Save or update your entity.
+     *
+     * @param entity
+     */
+     void saveOrUpdate(E entity) ;
+
+    /**
+     *
+     * @param entity
+     */
+     void update(E entity) ;
+
+    /**
+     * Delete your entity.
+     *
+     * @param entity
+     */
+     void remove(E entity);
+
+    /**
+     * find your data with key from entity.
+     *
+     * @param key
+     *
+     * @return entity with key.
+     */
+     E find(K key);
+
+    /**
+     * get all data with a list.
+     *
+     * @return list
+     */
+     List<E> getAll() ;
 }

@@ -17,20 +17,33 @@ import java.util.List;
 @Repository
 public abstract class GenericDaoImpl<E, K extends Serializable> implements GenericDAO<E,K> {
 
+    /**
+     *SessionFactorys are immutable. The behaviour of a SessionFactory is
+     * controlled by properties supplied at configuration time.
+     * These properties are defined on Environment.
+     */
     @Autowired
     private SessionFactory sessionFactory;
 
     protected Class<? extends E> daoType;
 
-    // doesnt work daoType, getAll return nothing
+    /**
+     * By defining this class as abstract, we prevent Spring from creating
+     * instance of this class If not defined as abstract,
+     * getClass().getGenericSuperClass() would return Object. There would be
+     * exception because Object class does not hava constructor with parameters.
+     */
     public GenericDaoImpl(){
         Type t = getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;
         daoType = (Class) pt.getActualTypeArguments()[0];
-
     }
 
-
+    /**
+     * get current session.
+     *
+     * @return current session from sessionFactory
+     */
     protected Session currentSession(){
         return sessionFactory.getCurrentSession();
     }

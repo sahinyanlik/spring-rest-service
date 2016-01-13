@@ -14,11 +14,17 @@ import java.util.List;
 @Service
 public abstract class GenericServiceImpl<E,K> implements GenericService<E,K> {
 
+    /**
+     *GenericDao interface contains common methods used by multiple dao classes.
+     * Also, we are using Java generic concept in this interface.
+     * E and K letters represent Model class
+     */
     private GenericDAO<E,K> genericDAO;
 
     public GenericServiceImpl(GenericDAO<E, K> genericDAO) {
         this.genericDAO = genericDAO;
     }
+
     public GenericServiceImpl(){
 
     }

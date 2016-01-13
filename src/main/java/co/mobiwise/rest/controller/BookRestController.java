@@ -22,7 +22,11 @@ public class BookRestController {
 
     static final Logger logger = Logger.getLogger(BookRestController.class);
 
-
+    /**
+     * Get all books in a list.
+     *
+     * @return bookList
+     */
     @RequestMapping(value="/book", method = RequestMethod.GET)
     public @ResponseBody
     List<Book> getBookList() {
@@ -35,6 +39,13 @@ public class BookRestController {
         return bookList;
     }
 
+    /**
+     * Save new book. Spring automatically binds the bookName and bookDesc
+     * parameters in the request to book argument
+     * @param book
+     * @return String indicating success or failure of add
+
+     */
     @RequestMapping(value = "/book", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     String addBook(@RequestBody Book book){
@@ -46,6 +57,13 @@ public class BookRestController {
         }
     }
 
+    /**
+     * Get book with id. example /book/1
+     *
+     * @param id
+     *
+     * @return book
+     */
     @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Book getBookById(@PathVariable("id") int id){
@@ -59,6 +77,13 @@ public class BookRestController {
         return book;
     }
 
+    /**
+     * Delete book with id.
+     *
+     * @param book
+     *
+     * @return String indicating success or failure of delete.
+     */
     @RequestMapping(value="/book/{id}", method = RequestMethod.DELETE)
     public @ResponseBody
     String deleteBook(@RequestBody Book book){

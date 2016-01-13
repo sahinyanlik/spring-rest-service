@@ -16,7 +16,6 @@ public class BookServiceImpl extends GenericServiceImpl<Book, Integer> implement
 
     public BookDAO bookDAO;
     public BookServiceImpl(){
-
     }
 
     @Autowired
