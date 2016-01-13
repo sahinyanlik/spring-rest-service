@@ -18,7 +18,7 @@ import java.util.List;
 public abstract class GenericDaoImpl<E, K extends Serializable> implements GenericDAO<E,K> {
 
     /**
-     *SessionFactorys are immutable. The behaviour of a SessionFactory is
+     * SessionFactorys are immutable. The behaviour of a SessionFactory is
      * controlled by properties supplied at configuration time.
      * These properties are defined on Environment.
      */

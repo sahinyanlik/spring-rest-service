@@ -19,30 +19,15 @@ public class Book {
     @Column(name = "bookDesc")
     private String bookDesc;
 
-    public Book() {
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getBookName() {
         return bookName;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
     public String getBookDesc() {
         return bookDesc;
-    }
-
-    public void setBookDesc(String bookDesc) {
-        this.bookDesc = bookDesc;
     }
 }
