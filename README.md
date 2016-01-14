@@ -1,5 +1,8 @@
 # Spring MVC RestService
 
+Spring MVC
+Hibernate
+
 branches 
 
 initial  -> empty project for blog post
