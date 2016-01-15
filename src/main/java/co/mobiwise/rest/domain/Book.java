@@ -1,6 +1,9 @@
 package co.mobiwise.rest.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Created by yusuf on 1/13/16.
@@ -20,6 +23,17 @@ public class Book {
     private String bookDesc;
 
     public Book() {
+    }
+
+    public Book(int id, String bookName, String bookDesc) {
+        this.id = id;
+        this.bookName = bookName;
+        this.bookDesc = bookDesc;
+    }
+
+    public Book(String bookName, String bookDesc) {
+        this.bookName = bookName;
+        this.bookDesc = bookDesc;
     }
 
     public int getId() {
