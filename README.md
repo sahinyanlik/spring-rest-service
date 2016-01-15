@@ -17,3 +17,4 @@ I prepared 3 branches. You can see below  why I did.
 - initial  -> empty project for blog post
 - v1 -> without generic dao
 - v2 -> with generic dao and test
+- v2 -> updated for annonation and class based configuration. thanks @ouzman
